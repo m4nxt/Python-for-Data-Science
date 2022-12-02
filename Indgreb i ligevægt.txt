@@ -1,0 +1,433 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{calculator}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{chemfig}
+\usepackage{mhchem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[a4paper, total={6in, 8.2in}]{geometry}
+\usepackage{titling}
+\renewcommand{\contentsname}{Indhold}
+\setlength{\droptitle}{-8em}
+\pgfplotsset{compat=1.11}
+\title{Indgreb i ligevægt}
+\author{Mathias 2.v}
+\date{6. November 2022}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Formål}
+Formålet med forsøget er at finde ud af, 
+hvilke egenskaber reaktionen \ce{SCN^-_{(s)} + Fe^{3+}_{(aq)} \rightleftharpoons FeSCN^{2+}_{(aq)}} har,
+hvordan den opfører sig under forskellige forhold og hvordan disse egenskaber kan ændrer sig.
+\section{Teori}
+\subsection{Reversible reaktioner}
+En reversibel reaktion skrives med en harpun,
+der peger både til højre og til venstre ($\rightleftharpoons$).
+Reversible reaktioner kan ske begge veje, 
+f.eks. reaktionen
+\[\ce{CO2_{(g)}} \rightleftharpoons \ce{CO2_{(aq)}}\]
+I denne reaktion foretager \ce{CO2} et faseskift fra gas til vandopløst,
+men også et faseskift fra vandopløst til gas.
+Reversible reaktioner er altid endoterme den ene vej og exoterme den anden vej.
+Dvs. at reaktionen den ene vej kræver energi i form af varme,
+og afgiver den tilsvarende varme-energi den anden vej.
+I starten af alle reaktioner findes der kun reaktanten.
+Det betyder at i starten af en reversibel reaktion vil den kun foregår forlens,
+og efter der dannes mere af produktet,
+vil reaktion også foretages baglens.
+Reversible reakitoner kan også ske mellem 2 ens molekyler, f.eks.
+\[\ce{2H2O_{(l)} \rightleftharpoons H3O^+_{(aq)} + OH^-_{(aq)}}\]
+Denne reaktion sker ofte i vand og kaldes for selvionisering,
+da vandet herved danner sine egne ioner (oxonium \ce{H3O^+} og hydroxid \ce{OH^-}) ved at udveksle \ce{H+} ioner (hydroner).
+\subsection{Kemisk ligevægt}
+Kemisk ligevægt opstår når reaktionens rate,
+altså antallet af reaktioner over tid,
+er ens begge veje.
+Ved kemisk ligevægt sker reaktionerne stadig,
+men givet at de sker med samme rate forlens og baglens,
+går reaktionerne ud med hinanden.
+Der er altså ingen ændring i koncentrationen af reaktant eller produkt,
+men det betyder ikke,
+at koncentrationen af reaktant og produkt er lig med hinanden.
+Den kemiske ligevægt kan ses,
+hvis man plotter en reversibel reaktions koncentrationer.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[ x post scale=1.5, y post scale=1,
+xmin=0, xmax=8, ymin=0, ymax=4, axis lines=left,
+ylabel={Koncentration}, xlabel={Tid},
+xtick=\empty, ytick=\empty]
+\draw[color=red] (0,0) .. controls (0,2.5) and (5,2.5) .. (5,2.5)
+.. controls (5,2.5) and (8,2.5) .. (8,2.5);
+\draw[color=blue] (0,4) .. controls (0,1.5) and (5,1.5) .. (5,1.5)
+.. controls (5,1.5) and (8,1.5) .. (8,1.5);
+\draw[dashed] (5,1) -- (5,3);
+\node at (5,3.33) {Ligevægt};
+\node[color=blue] at (1.33,3) {Reaktant};
+\node[color=red] at (1.33,1) {Produkt};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+På grafen kan det ses,
+at når koncentrationen af både reaktant og produkt er konstant,
+er raten af reaktionen forlens og baglens også ens.
+Reaktionen har altså opnået ligevægt.
+\subsection{Reaktionsbrøken og ligevægtskonstanten}
+Reaktionsbrøken Y er forholdet mellem koncentrationen af produktet og koncentrationen af reaktanten,
+og er givet ved
+\[\text{Y} = \frac{[C]^c * [D]^d * ...}{[A]^a * [B]^b * ...}
+\text{ for reaktionen } \ce{aA_{(aq)} + bB_{(aq)} + ... \rightleftharpoons cC_{(aq)} + dD_{(aq)} + ...}\]
+\[\text{F.eks. for reaktionen }\ce{Fe^3+_{(aq)} + SCN^-_{(aq)} \rightleftharpoons FeSCN^2+_{(aq)}}
+\text{ er Y } = \frac{\ce{[FeSCN^2+]}}{\ce{[Fe^3+] * [SCN^-]}}\]
+Talværdien af reaktionsbrøken Y svarer til,
+i hvor høj grad reaktanten er omdannet til produkt.
+Jo tættere Y er på nul,
+jo mindre af reaktanten er blevet omdannet.
+Ligevægtskonstanten kan gives når en reaktion opnår ligevægt og skrives typisk som $K$,
+$K_C$ eller $K_{eq}$.
+Ligevægtskonstanten $K_{eq}$ er lig med reaktionsbrøken Y ved ligevægt.
+Enheden for $K_{eq}$ er M$^{c + d + ... - (a + b + ...)}$.
+\subsection{Temperaturændring}
+Reaktionsbrøken er afhængig af reaktionens temperatur.
+Hvis temperaturen stiger vil reaktionsbrøken forskydes i den endoterme retning,
+da der kommer et overskud af varmeenergi.
+F.eks. for reaktionen \ce{KNO3 + NaCl \rightleftharpoons KCl + NaNO3},
+vil ligevægtskonstanten forskydes til reaktantens side når temperaturen stiger,
+da denne reaktion er endoterm baglens.
+Her kan varmestigningen ses for en given reaktion der er endoterm forlens,
+hvor ligevægtskonstanten dermed forskydes til produktets side.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[ x post scale=1.5, y post scale=1,
+xmin=0, xmax=8, ymin=0, ymax=3.5, axis lines=left,
+ylabel={Koncentration}, xlabel={Tid},
+xtick=\empty, ytick=\empty]
+\draw[color=red] (0,2) .. controls (0,2) and (2.5,2) .. (2.5,2)
+.. controls (2.5,2) and (2.5,2.25) .. (5,2.25)
+.. controls (5,2.25) and (5,2.25) .. (8,2.25);
+\draw[color=blue] (0,1) .. controls (0,1) and (2.5,1) .. (2.5,1)
+.. controls (2.5,1) and (2.5,0.75) .. (5,0.75)
+.. controls (5,0.75) and (5,0.75) .. (8,0.75);
+\draw[dashed] (2.5,0.75) -- (2.5,2.25);
+\node at (2.5,0.4) {Temperaturændring};
+\draw[dashed] (5,0.5) -- (5,2.5);
+\node at (5,2.8) {Reaktionsbrøken er forskudt};
+\node[color=red] at (1,2.25) {Produkt};
+\node[color=blue] at (1,1.25) {Reaktant};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Hvis temperaturen falder,
+vil reaktionsbrøken forskydes til siden af det stof,
+der dannes ved den exoterme reaktion.
+Her kan den samme givne reaktion ses,
+hvis temperaturen falder,
+hvor reaktionsbrøken dermed forskydes til reaktantens side.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[ x post scale=1.5, y post scale=1,
+xmin=0, xmax=8, ymin=0, ymax=3.5, axis lines=left,
+ylabel={Koncentration}, xlabel={Tid},
+xtick=\empty, ytick=\empty]
+\draw[color=red] (0,2) .. controls (0,2) and (2.5,2) .. (2.5,2)
+.. controls (2.5,2) and (2.5,1.75) .. (5,1.75)
+.. controls (5,1.75) and (5,1.75) .. (8,1.75);
+\draw[color=blue] (0,1) .. controls (0,1) and (2.5,1) .. (2.5,1)
+.. controls (2.5,1) and (2.5,1.25) .. (5,1.25)
+.. controls (5,1.25) and (5,1.25) .. (8,1.25);
+\draw[dashed] (2.5,0.75) -- (2.5,2.25);
+\node at (2.5,0.4) {Temperaturændring};
+\draw[dashed] (5,0.75) -- (5,2.25);
+\node at (5,2.6) {Reaktionsbrøken er forskudt};
+\node[color=red] at (1,2.25) {Produkt};
+\node[color=blue] at (1,1.25) {Reaktant};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\subsection{Le Chateliers princip}
+Le Chateliers princip, 
+også kaldet for forskydsningsprincippet,
+siger at et ydre indgreb i en dynamisk ligevægt forskyder ligevægten i den retning,
+der gør virkningen af indgrebet mindre.
+Altså, tilføjes der mere af reaktanten, dannes der mere af produktet.
+Fjernes der noget af reaktenten, dannes der mere af reaktanten.
+Tilføjes der mere af produktet, dannes der mere af reaktanten.
+Og fjernes der noget af produktet, dannes der mere af produktet.
+Sådan holdes reaktionen altid i balance,
+det kan ses i nedenstående graf af en given reaktion,
+hvor der tilføjes mere af produktet.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[ x post scale=1.5, y post scale=1,
+xmin=0, xmax=8, ymin=0, ymax=3.5, axis lines=left,
+ylabel={Koncentration}, xlabel={Tid},
+xtick=\empty, ytick=\empty ]
+\draw[color=red] (0,2) .. controls (0,2) and (2,2) .. (2,2)
+.. controls (2,2) and (2,2) .. (2,3)
+.. controls (2,3) and (3,2.5) .. (5,2.5)
+.. controls (5,2.5) and (5,2.5) .. (8,2.5);
+\draw[color=blue] (0,1) .. controls (0,1) and (2,1) .. (2,1)
+.. controls (2,1) and (2,1.5) .. (5,1.5)
+.. controls (5,1.5) and (5,1.5) .. (8,1.5);
+\draw[dashed] (5,1) -- (5,3);
+\node at (5,0.66) {Reaktionen genopnår ligevægt};
+\node[color=red] at (1,2.5) {Produkt};
+\node[color=blue] at (1,0.5) {Reaktant};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\subsection{Koblede ligevægte}
+Nogle reaktioner sker først en vej,
+hvorefter der kan opstå en reversibel reaktion.
+Det kan f.eks. ses i reaktionen
+\[\ce{Ag^+_{(aq)} + 2NH_3_{(aq)} \rightleftharpoons Ag(NH_3)_2^+_{(aq)}}\]
+Først sker reaktionen
+\[\ce{Ag^+_{(aq)} + NH_3_{(aq)} \Rightarrow Ag(NH_3)^+_{(aq)}}\]
+og derefter
+\[\ce{Ag(NH_3)^+_{(aq)} + NH_3_{(aq)} \rightleftharpoons Ag(NH_3)_2^+_{(aq)}}\]
+Reaktionen kan altså bare forkortes til \ce{Ag^+_{(aq)} + 2NH_3_{(aq)} \rightleftharpoons Ag(NH_3)_2^+_{(aq)}}.
+Desuden kan man skrive reaktioner uden nogle af stofferne,
+hvis de ikke er relevante, f.eks.
+\begin{align*}
+\ce{KSCN_{(s)} + Fe(NO_3)_3_{(aq)} &\Rightarrow FeSCN^{2+}_{(aq)} + K^+_{(aq)} + 3NO_3^-_{(aq)}}\\
+\ce{FeSCN^{2+}_{(aq)} &\rightleftharpoons SCN^-_{(s)} + Fe^{3+}_{(aq)}}
+\end{align*}
+Denne reaktion vil forkortes til $\ce{SCN^-_{(s)} + Fe^{3+}_{(aq)} \rightleftharpoons FeSCN^{2+}_{(aq)}}$,
+da de andre stoffer ikke er relevante.
+\subsection{Andre stoffers påvirkning}
+Generelt når der tilsættes ydre stoffer til en reversibel reaktion,
+vil reaktionsbrøken forskydes i den retning, hvor det tilsatte stof forbruges.
+Og omvendt hvis der fjernes stof fra reaktionen, vil der ske en forskydning i den retning,
+hvor stoffet kan gendannes.
+\pagebreak
+\section{Metode}
+\subsection{Apparatur og kemikalier}
+\begin{multicols}{2}
+\begin{itemize}
+\item 7 reagensglas
+\item 2 100 ml bægerglas
+\item 250 ml konisk kolbe
+\item 2 500 ml måleglas
+\item 3 glasspatler
+\item Varmt vand
+\item Isvand
+\item 0.1 M \ce{KSCN_{(aq)}}
+\item 0.1 M \ce{Fe(NO_3)_3_{(aq)}}
+\item \ce{Fe(NO3)3_{(s)}}
+\item \ce{KSCN_{(s)}}
+\item 0.1 M \ce{AgNO3_{(aq)}}
+\item \ce{NaHSO3_{(s)}}
+\end{itemize}
+\end{multicols}
+\subsection{H- og P-sætninger}
+\subsubsection*{\ce{KSCN_{(s)}}}
+\begin{tabular}{p{1.5cm}p{10.5cm}}
+\hline
+H302&
+Farlig ved indtagelse.\\
+\hline
+H312&
+Farlig ved hudkontakt.\\
+\hline
+H332&
+Farlig ved indånding.\\
+\hline
+EUH 032&
+Udvikler meget giftig gas ved kontakt med syre. \\
+\hline
+P280&
+Bær beskyttelseshandsker / beskyttelsestøj / øjenbeskyttelse / ansigtsbeskyttelse.\\
+\hline
+\end{tabular}
+\subsubsection*{0.1 M \ce{KSCN_{(aq)}}}
+\begin{tabular}{p{1.5cm}p{10.5cm}}
+\hline
+H332&
+Farlig ved indånding.\\
+\hline
+EUH 032&
+Udvikler meget giftig gas ved kontakt med syre.\\
+\hline
+\end{tabular}
+\subsubsection*{0.1 M \ce{AgNO3_{(aq)}}}
+\begin{tabular}{p{1.5cm}p{10.5cm}}
+\hline
+H314&
+Forårsager svære ætsninger af huden og øjenskader.\\
+\hline
+H410&
+Meget giftig med langvarige virkninger for vandlevende organismer.\\
+\hline
+P273&
+Undgå udledning til miljøet.\\
+\hline
+P280&
+Bær beskyttelseshandsker / beskyttelsestøj / øjenbeskyttelse / ansigtsbeskyttelse.\\
+\hline
+P305 + P351 + P338&
+VED KONTAKT MED ØJNENE: Skyl forsigtigt med vand i flere minutter. Fjern eventuelle kontaktlinser, hvis dette kan gøres let. Fortsæt skylning.\\
+\hline
+P310&
+Ring omgående til en GIFTINFORMATION eller en læge.\\
+\hline
+P501&
+Indholdet/beholderen bortskaffes i overensstemmelse med kommunale regler for affaldshåndtering*\\
+\hline
+\end{tabular}
+\subsubsection*{\ce{NaHSO3_{(s)}}}
+\begin{tabular}{p{1.5cm}p{10.5cm}}
+\hline
+H302&
+Farlig ved indånding.\\
+\hline
+EUH 031&
+Udvikler giftig gas ved kontakt med syre.\\
+\hline
+P221.1&
+Undgå at blande med syrer.\\
+\hline
+P301 + P312 + P330&
+I TILFÆLDE AF INDTAGELSE: I tilfælde af ubehag ring til en GIFTINFORMATION eller en læge. Skyl munden.\\
+\hline
+\end{tabular}
+\subsection{Fremgangsmetode}
+\subsubsection*{Opsætning}
+\begin{enumerate}
+\item Den koniske kolbe fyldes op med 220 ml vand,
+og der tilsættes 15 ml 0.1 M kaliumthiocyanat \ce{KSCN_{(aq)}} og 15 ml 0.1 M jern(III)nitrat \ce{Fe(NO_3)_3_{(aq)}}.
+\item Der hældes 40 ml af blandingen i hvert af de 2 100 ml bægerglas,
+og 7 reagensglas fyldes halvt op med blandingen og nummereres fra 1 til 7.
+\end{enumerate}
+\subsubsection*{Temperaturændring}
+\begin{enumerate}[resume]
+\item Reagensglas nr. 2 placeres i et 500 ml måleglas med varmt vand,
+imens reagensglas nr. 3 placeres i et 500 ml måleglas med isvand.
+\item Reagensglas nr. 1, 2 og 3 sammenlignes,
+og det afgøres hvordan temperaturændringen har påvirket ligevægten.
+\end{enumerate}
+\subsubsection*{Tilførsel af stoffer}
+\begin{enumerate}[resume]
+\item Der tilsættes henholdsvis en spatelfuld kaliumthiocyanat \ce{KSCN_{(s)}} til reagensglas nr. 4,
+jern(III)nitrat \ce{Fe(NO_3)_3_{(aq)}} til reagensglas nr. 5, og natriumhydrogensulfit \ce{NaHSO3_{(s)}} til reagensglas nr. 6.
+Herefter tilsættes et par dråber 0.1 M sølvnitrat \ce{AgNO3_{(aq)}} til reagensglas nr. 7.
+\item Reagensglas nr. 1, 4, 5, 6 og 7 sammelignes,
+og det afgøres hvordan ligevægten påvirkes,
+når der bliver tilføjet andre stoffer.
+\end{enumerate}
+\subsubsection*{Koncentrationsændring}
+\begin{enumerate}[resume]
+\item Der tilsættes 40 ml vand til det ene af bægerglassene.
+\item Bægerglassene betragtes fra oven,
+og det afgøres,
+hvordan en sænkning i blandingens koncentration påvirker ligevægten.
+\end{enumerate}
+\pagebreak
+\section{Data og databehandling}
+Når der blandes kaliumthiocyanat \ce{KSCN_{(aq)}} og jern(III)nitrat \ce{Fe(NO_3)_3_{(aq)}} sker reaktionen
+\[\ce{Fe^{3+}_{(aq)} + SCN^-_{(aq)} \rightleftharpoons FeSCN^{2+}_{(aq)}}\]
+\ce{Fe^{3+}_{(aq)}} har en svag gul farve,
+\ce{SCN^-_{(aq)}} er farveløs og \ce{FeSCN^{2+}_{(aq)}} har en kraftig mørkerød farve.
+\subsection{Temperaturændring}
+Reagensglas nr. 2 er placeret i et måleglas med varmt vand,
+og reagensglas nr. 3 er placeret i et måleglas med isvand.
+Det kan ses at reagensglas nr. 2 bliver gult / orange,
+hvilket må betyde at dette reagensglas har en forhøjet koncentration af \ce{Fe^{3+}_{(aq)}}.
+Reagensglas nr. 3 bliver lidt mørkere rødt end reagensglas nr. 1,
+det må betyde at koncentrationen af \ce{FeSCN^{2+}_{(aq)}} i dette reagensglas er forhøjet,
+men allerede var tæt på sit maksimale før forsøget.
+\begin{center}
+\includegraphics[height=5cm]{20221031_152235.jpg}
+\end{center}
+\subsection{Tilførsel og fjernelse af stoffer}
+Det kan ses at opblandingen i reagensglas nr. 4 og 5 er mere grumset end den i reagensglas nr. 1,
+det skyldes den forhøjede koncentration,
+skabt af tilsættelsen af henholdsvis \ce{KSCN_{(s)}} og \ce{Fe(NO3)3_{(aq)}}.
+Det kan desuden ses at opblandingen i reagensglas nr. 6 er en let gennemsigtig gul farve,
+og at opblandingen i reagensglas nr. 7 er en meget uklar mælke-hvid farve.
+\begin{center}
+\includegraphics[height=5cm]{20221031_152347.jpg}
+\end{center}
+\subsection{Koncentrationsændring}
+Måleglasset til venstre er tilsat 40 ml vand.
+Det kan ses at opblandingen i dette glas er er lidt mindre mørkerød,
+samt at koncentrationen er lavere end måleglasset til højre.
+\begin{center}
+\includegraphics[height=5cm]{20221031_152636.jpg}
+\end{center}
+\section{Diskussion}
+\subsection{Fejlkilder}
+Første gang vi lavede forsøget tilføjede vi 1.5 ml af henholdsvis kaliumthiocyanat og jern(III)nitrat til reagensglassene,
+i stedet for 15 ml. Vi lavede dog forsøget om med den rigtige mængde kemikalier.
+\subsection{Afgør ud fra temperaturændringsforsøgene,
+om reaktionen mod højre er exoterm eller endoterm.}
+Det kan konkluderes ud fra temperaturændringsforsøgene at opblandingen bliver gul når der tilføjes varme.
+Da det eneste gule i reaktionen er \ce{Fe^{3+}_{(aq)}},
+må det betyde at der dannes mere \ce{Fe^{3+}_{(aq)}} ved højre varme,
+og reaktionen er dermed endoterm mod venstre.
+Altså er \ce{Fe^{3+}_{(aq)} + SCN^-_{(aq)} \Rightarrow FeSCN^{2+}_{(aq)}} exoterm,
+og \ce{FeSCN^{2+}_{(aq)} \Rightarrow Fe^{3+}_{(aq)} + SCN^-_{(aq)}} endoterm.
+\subsection{Opskriv ligevægtsudtrykket for ligevægten.}
+Ligevægtskonstanten for reaktionen \ce{Fe^{3+}_{(aq)} + SCN^-_{(aq)} \rightleftharpoons FeSCN^{2+}_{(aq)}} har enheden M$^{-1}$,
+og er givet ved ligevægtsudtrykket $K_{eq} = \frac{\ce{[FeSCN^{2+}]}} {\ce{[Fe^{3+}]} * \ce{[SCN^-]}}$.
+\subsection{Forklar forsøgene med tilførsel og fjernelse af stof,
+dels ud fra ligevægtsudtrykket, dels ud fra Le Chateliers princip.}
+Der bliver tilsat en spatelfuld af henholdsvis \ce{KSCN_{(s)}} og \ce{Fe(NO3)3_{(aq)}} til reagensglas nr. 4 og 5.
+For begge af opblandingerne i disse reagensglas vil reaktionen forsøge at sætte sig selv i balance igen,
+det gøres henholdsvis ved dannelsen af \ce{FeSCN^{2+}_{(aq)}} i reagensglas nr. 4,
+og \ce{SCN^-_{(aq)}} i reagensglas nr. 5.
+Det skaber en forhøjet koncentration af både reaktant og produkt i begge reagensglas,
+hvilket gør opblandingen lidt mørkere og mere uklar.
+Dette kan ses med det blotte øje.\\
+\noindent Til reagensglas nr. 6 bliver der tilsat en spatelfuld \ce{NaHSO3_{(aq)}},
+hvilket reducerer \ce{Fe^{3+}} ionerne til \ce{Fe^{2+}} ioner ved følgende reaktion.
+\[\ce{NaHSO3_{(aq)} + Fe^{3+}_{(aq)} \Rightarrow NaHSO3^+_{(aq)} + Fe^{2+}_{(aq)}}\]
+Her vil ligevægten hælde til produktets side,
+og der vil dermed, ifølge Le Chateliers princip,
+dannes flere \ce{Fe^{3+}_{(aq)}} ioner, for at sætte reaktionsbrøken i balance igen.
+Den nye dannelse af \ce{Fe^{3+}_{(aq)}} ioner gør at opblandingen i dette reagensglas bliver mere gul,
+samt den sænkede koncentration af begge stoffer gør opblandingen mere klar og gennemsigtig.\\
+\noindent Til reagensglas nr. 7 tilsættes der et par dråber \ce{AgNO3_{(aq)}},
+hvilket opløses til \ce{Ag^+_{(aq)}} og \ce{NO3^-_{(aq)}}.
+Herefter danner \ce{NO3^-_{(aq)}} ionerne et bånd med de gule \ce{Fe^{3+}_{(aq)}} ioner ved reaktionen
+\[\ce{NO3^-_{(aq)} + Fe^{3+}_{(aq)} \Rightarrow FeNO3^{2+}_{(aq)}}\]
+Da \ce{FeNO3^{2+}_{(aq)}} er farveløst,
+fjerner denne reaktion den gule farve fra opblandingen.
+Samtidig danner \ce{Ag^+_{(aq)}} ionerne et kompleks med opblandingens \ce{SCN^-_{(aq)}} ioner ved reaktionen
+\[\ce{Ag^+_{(aq)} + SCN^-_{(aq)} \Rightarrow AgSCN_{(aq)}}\]
+Denne reaktion trækker \ce{SCN^-_{(aq)}} ioner ud af opblandingen og danner det hvide \ce{AgSCN_{(aq)}}.
+Reaktionsbrøken vil dermed, forskydes til produktets side,
+hvilket ifølge Le Chateliers Princip,
+reduceres koncentrationen af \ce{FeSCN^{2+}_{(aq)}},
+og \ce{AgSCN_{(aq)}} molekylerne giver opblandingen sin hvide farve.
+\subsection{Forklar forsøget med koncentrationsændring,
+dels ud fra ligevægtsudtrykket, dels ud fra Le Chateliers princip.}
+I det ene måleglas blev der tilsat 40 ml vand til 40 ml af opblandingen.
+Koncentrationen af hele opblandingen blev altså halveret.
+Når koncentrationen af opblandingenen halveres,
+halveres koncentrationen af alle stofferne der indgår i reaktionen også.
+Ligevægtskonstanten for opblandingen i dette måleglas er dermed givet ved
+\[K_{eq} = \frac{0.5 \ce{[FeSCN^{2+}]}} {0.5 \ce{[Fe^{3+}]} * 0.5 \ce{[SCN^-]}}
+\Rightarrow K_{eq} = \frac{0.5 \ce{[FeSCN^{2+}]}} {0.25 \ce{[Fe^{3+}]} * \ce{[SCN^-]}}\]
+Her kan det ses at koncentrationen af produktet \ce{FeSCN^{2+}} halveres,
+imens koncentrationerne af reaktanterne \ce{Fe^{3+}_{(aq)} + SCN^-_{(aq)}} kvadreres.
+Det betyder at reaktionsbrøken vil hælde til produktets side,
+og der vil dermed, ifølge Le Chateliers princip,
+dannes mere \ce{Fe^{3+}_{(aq)}} og \ce{SCN^-_{(aq)}},
+for at sætte reaktionen i balance igen.
+Dette, sammen med sænkningen i koncentration,
+gør at opblandingen bliver mere gennemsigtig og mindre mørkerød.
+\section{Konklusion}
+Ligevægten for en reaktion kan påvirkes af mange forskellige forhold.
+Ligevægten afhænger af både reaktionens temperatur,
+koncentration af opblandingen, 
+forskellen mellem koncentrationen af reaktant og produkt,
+og hvilke andre stoffer der er tilsat til reaktionen.
+\end{document}
